@@ -2,12 +2,12 @@ const POKEMON_BASE_URL = 'https://pokeapi.co/api/v2/'
 
 window.onload = async () => {
     const pokemon = await getPokemonKanto();
+    const mainHtmlElement = document.getElementById('ulPokemon');
 
     for (const poke of pokemon){
-        const mainHtmlElement = document.getElementById('ulPokemon');
         const newElement = document.createElement('li');
 
-        newElement.innerHTML = `<h2 onclick="infoPoke(${poke.id})">${poke.name}</h2><p></p>`
+        newElement.innerHTML = `<li onclick="infoPoke('${poke.id}')">${poke.name}</li><p></p>`
 
         if (poke.name !== null){
             mainHtmlElement.appendChild(newElement);
@@ -25,7 +25,7 @@ async function getPokemonKanto(){
 async function getPokeById(pokeId){
     const response = await fetch(`${POKEMON_BASE_URL}pokemon/${pokeId}`);
     const data = await response.json();
-    return data.results;
+    return data;
 }
 
 async function infoPoke(pokeId) {
@@ -41,6 +41,4 @@ async function infoPoke(pokeId) {
     <p>${poke.types.type.name}</p>`;
   
     sectionHtmlElement.appendChild(newElement);
-  }
-
-  
+}
