@@ -7,7 +7,7 @@ window.onload = async () => {
     for (const poke of pokemon){
         const newElement = document.createElement('li');
 
-        newElement.innerHTML = `<li onclick="infoPoke('${poke.id}')">${poke.name}</li><p></p>`
+        newElement.innerHTML = `<span onclick="infoPoke('${poke.url}')">${poke.name}</span>`
 
         if (poke.name !== null){
             mainHtmlElement.appendChild(newElement);
@@ -26,6 +26,12 @@ async function getPokeById(pokeId){
     const response = await fetch(`${POKEMON_BASE_URL}pokemon/${pokeId}`);
     const data = await response.json();
     return data;
+}
+
+async function getPokeId(pokeUrl){
+    const response = await fetch(`${pokeUrl}`);
+    const data = await response.json();
+    return data.id;
 }
 
 async function infoPoke(pokeId) {
