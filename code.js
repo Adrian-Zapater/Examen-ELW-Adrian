@@ -5,8 +5,8 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('ulPokemon');
 
     for (const poke of pokemon){
-        const newElement = document.createElement('li');
-        newElement.innerHTML = `<span onclick="infoPoke('${poke.url}')">${poke.name}</span>`
+        const newElement = document.createElement('h2');
+        newElement.innerHTML = `<span onclick="infoPoke('${poke.url}')">${poke.name}</span><p></p>`
 
         if (poke.name !== null){
             mainHtmlElement.appendChild(newElement);
@@ -42,8 +42,11 @@ async function infoPoke(pokeUrl) {
     const newElement = document.createElement('div');
     newElement.innerHTML = `
     <h1>${poke.name}</h1>
-    <p>${poke.id}</p>
-    <p>${poke.types.type.name}</p>`;
+    <p>${poke.id}</p>`;
   
     sectionHtmlElement.appendChild(newElement);
 }
+
+function cerrarPoke() {
+    document.getElementById('poke').style.display = 'none';
+  }

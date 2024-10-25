@@ -1,0 +1,49 @@
+body {
+    background-image: url('https://img.goodfon.com/wallpaper/big/c/61/anime-art-fon-tekstura-pokemon.webp');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#header{
+    font-size: 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#pokemon {
+    background-color: rgba(128, 128, 128, 0.9);
+    float: left;
+    width: 48%;
+    margin: 1%;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+#sectionTitle {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#poke {
+    display: none;
+    background-color: rgba(128, 128, 128, 0.9);
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    position: fixed;
+    border: 1px solid #ddd;
+}
+
+section ul h2 {
+    margin
+}
+
+section ul h2:hover {
+    color: white;
+    cursor: pointer;
+  }
