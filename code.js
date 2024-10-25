@@ -1,4 +1,6 @@
 const POKEMON_BASE_URL = 'https://pokeapi.co/api/v2/'
+let nEquip = 0;
+const equip = new Array(6);
 
 window.onload = async () => {
     const pokemon = await getPokemonKanto();
@@ -32,6 +34,15 @@ async function getPokeByUrl(pokeUrl){
     return data;
 }
 
+function addPoke(pokeId) {
+    if (nEquip == 6)
+        alert(`¡EQUIPO COMPLETO!`);
+    else{
+        nEquip++;
+        equip.push(pokeId);
+    }
+}
+
 async function infoPoke(pokeUrl) {
     document.getElementById('poke').style.display = 'block';
     const sectionHtmlElement = document.getElementById('poke');
@@ -40,9 +51,9 @@ async function infoPoke(pokeUrl) {
   
     const newElement = document.createElement('div');
     newElement.innerHTML = `
+    <h2>${poke.id}</h2>
     <h1>${poke.name}</h1>
     <figure><img id="imagen" src="${poke.sprites.front_default}"></img></figure>
-    <h2>Id: ${poke.id}</h2>
     <h3>Types:</h3>`;
   
     sectionHtmlElement.appendChild(newElement);
@@ -53,7 +64,6 @@ async function infoPoke(pokeUrl) {
         const listItem = document.createElement('li');
         listItem.textContent = type.type.name;
         newElement2.appendChild(listItem);
-        console.log(type.type.name);
     }
     sectionHtmlElement.appendChild(newElement2);
 

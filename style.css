@@ -39,13 +39,14 @@ main {
     border: 1px solid #513a05;
 }
 
+#poke div h2 {
+    text-align: right;
+    margin-top: 0px;
+}
+
 #imagen {
     background-color: white;
     border: 1px solid #513a05;
-}
-
-#addPoke {
-     align-items: center;
 }
 
 section ul h2 {
