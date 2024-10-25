@@ -32,12 +32,6 @@ async function getPokeByUrl(pokeUrl){
     return data;
 }
 
-async function getTypePoke(pokeId){
-    const response = await fetch(`${POKEMON_BASE_URL}pokemon/${pokeId}`);
-    const data = await response.json();
-    return data;
-}
-
 async function infoPoke(pokeUrl) {
     document.getElementById('poke').style.display = 'block';
     const sectionHtmlElement = document.getElementById('poke');
@@ -47,21 +41,22 @@ async function infoPoke(pokeUrl) {
     const newElement = document.createElement('div');
     newElement.innerHTML = `
     <h1>${poke.name}</h1>
-    <p>${poke.id}</p>
-    
-    <p>Types:</p>`;
+    <p>Id: ${poke.id}</p>
+    <h3>Types:</h3>`;
   
     sectionHtmlElement.appendChild(newElement);
 
-    newElement = document.createElement('ul');
-    const types = await getTypePoke(poke.id);
+    const newElement2 = document.createElement('ul');
 
-    for (const type in types){
-        newElement.innerHTML = `<li>${type.name}</li>`
-        sectionHtmlElement.appendChild(newElement);
+    for (const type of poke.types){
+        const listItem = document.createElement('li');
+        listItem.textContent = type.type.name;
+        newElement2.appendChild(listItem);
+        console.log(type.type.name);
     }
+    sectionHtmlElement.appendChild(newElement2);
 }
 
 function cerrarPoke() {
     document.getElementById('poke').style.display = 'none';
-  }
+}
