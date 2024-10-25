@@ -41,7 +41,8 @@ async function infoPoke(pokeUrl) {
     const newElement = document.createElement('div');
     newElement.innerHTML = `
     <h1>${poke.name}</h1>
-    <p>Id: ${poke.id}</p>
+    <figure><img id="imagen" src="${poke.sprites.front_default}"></img></figure>
+    <h2>Id: ${poke.id}</h2>
     <h3>Types:</h3>`;
   
     sectionHtmlElement.appendChild(newElement);
@@ -55,6 +56,11 @@ async function infoPoke(pokeUrl) {
         console.log(type.type.name);
     }
     sectionHtmlElement.appendChild(newElement2);
+
+    const newElement3 = document.createElement('div');
+    newElement3.innerHTML = `
+    <button onclick="addPoke('${poke.id}')" id="addPoke">¡CAPTURALO!</button>`;
+    sectionHtmlElement.appendChild(newElement3);
 }
 
 function cerrarPoke() {
