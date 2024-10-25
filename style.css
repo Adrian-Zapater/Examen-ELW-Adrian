@@ -14,13 +14,13 @@ main {
 }
 
 #pokemon {
-    background-color: rgba(128, 128, 128, 0.9);
+    background-color: rgba(216, 167, 87, 0.9);
     float: left;
     width: 48%;
     margin: 1%;
     box-sizing: border-box;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #513a05;
 }
 
 #sectionTitle {
@@ -30,17 +30,17 @@ main {
 
 #poke {
     display: none;
-    background-color: rgba(128, 128, 128, 0.9);
+    background-color: rgba(235, 190, 54, 0.9);
     top: 50%;
     left: 25%;
     transform: translate(-50%, -50%);
     padding: 20px;
     position: fixed;
-    border: 1px solid #ddd;
+    border: 1px solid #513a05;
 }
 
 section ul h2 {
-    margin
+    display: inline;
 }
 
 section ul h2:hover {

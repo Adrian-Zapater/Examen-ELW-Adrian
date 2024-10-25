@@ -10,7 +10,6 @@ window.onload = async () => {
 
         if (poke.name !== null){
             mainHtmlElement.appendChild(newElement);
-
         }
     }
 }
@@ -33,6 +32,12 @@ async function getPokeByUrl(pokeUrl){
     return data;
 }
 
+async function getTypePoke(pokeId){
+    const response = await fetch(`${POKEMON_BASE_URL}pokemon/${pokeId}`);
+    const data = await response.json();
+    return data;
+}
+
 async function infoPoke(pokeUrl) {
     document.getElementById('poke').style.display = 'block';
     const sectionHtmlElement = document.getElementById('poke');
@@ -42,9 +47,19 @@ async function infoPoke(pokeUrl) {
     const newElement = document.createElement('div');
     newElement.innerHTML = `
     <h1>${poke.name}</h1>
-    <p>${poke.id}</p>`;
+    <p>${poke.id}</p>
+    
+    <p>Types:</p>`;
   
     sectionHtmlElement.appendChild(newElement);
+
+    newElement = document.createElement('ul');
+    const types = await getTypePoke(poke.id);
+
+    for (const type in types){
+        newElement.innerHTML = `<li>${type.name}</li>`
+        sectionHtmlElement.appendChild(newElement);
+    }
 }
 
 function cerrarPoke() {
